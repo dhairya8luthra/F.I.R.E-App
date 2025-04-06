@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Existing custom CSS variables */
+:root {
+  --background: 20 10% 4%;
+  --foreground: 0 0% 98%;
+  --card: 20 10% 5%;
+  --card-foreground: 0 0% 98%;
+  --popover: 20 10% 4%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 24 96% 53%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 20 10% 8%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 20 10% 8%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 24 96% 53%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 20 10% 8%;
+  --input: 20 10% 8%;
+  --ring: 24 96% 53%;
+  /* Note: Ensure that variables like --chart-1, etc. are defined if used */
+}
+
+/* Global styles using Tailwind’s @apply */
+* {
+  border: 1px solid rgb(var(--border));
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Define theme tokens directly in CSS using the @theme directive */
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
+
+/* Additional keyframes and utility classes not managed by @theme */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-gradient {
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--primary-color) 0%,
+    transparent 70%
+  );
+}
