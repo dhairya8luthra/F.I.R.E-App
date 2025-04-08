@@ -1,7 +1,7 @@
 // SignUpPage.js
 
 import { useNavigate } from 'react-router-dom';
-import { signInWithGoogle } from '../src/auth'; // adjust path as needed
+import { signInWithGoogle } from '../auth'; // adjust path as needed
 
 export default function SignUpPage() {
   const navigate = useNavigate();

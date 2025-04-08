@@ -12,6 +12,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 // Create the Supabase client
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabaseClient = supabase
 
 // Function to initiate Google OAuth sign-in
 export const signInWithGoogle = async (): Promise<void> => {
@@ -24,6 +25,16 @@ export const signInWithGoogle = async (): Promise<void> => {
   } else {
     console.log('Redirecting for Google sign in...', data.url)
     // After successful redirection and authentication
+    
+    const { data: { session }, error: sessionError } = await supabase.auth.getSession()
+    if (sessionError) {
+      console.error('Error getting session:', sessionError.message)
+    } else {
+      console.log('Session:', session)
+      
+      // Handle the session as needed, e.g., store it in local storage or state
+    }
+
   }
 }
 
@@ -34,3 +45,4 @@ if (googleSignInBtn) {
 } else {
   console.error("Google Sign-In button not found");
 }
+
