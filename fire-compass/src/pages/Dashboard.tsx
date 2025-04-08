@@ -47,7 +47,7 @@ import {
             </h2>
           </div>
           <nav className="px-4 py-2">
-            {sidebarItems.map((item, index) => (
+            {sidebarItems.map((item, _) => (
               <Button
                 key={item.id}
                 variant="ghost"
