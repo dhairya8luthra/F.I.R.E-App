@@ -1,4 +1,7 @@
+// SignUpPage.js
+
 import { useNavigate } from 'react-router-dom';
+import { signInWithGoogle } from '../src/auth'; // adjust path as needed
 
 export default function SignUpPage() {
   const navigate = useNavigate();
@@ -26,7 +29,7 @@ export default function SignUpPage() {
           {/* Google Sign Up Button */}
           <button
             className="w-full bg-white hover:bg-gray-50 text-gray-800 rounded-lg py-3 px-4 flex items-center justify-center gap-3 transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]"
-            onClick={() => console.log('Google sign up clicked')}
+            onClick={signInWithGoogle}
           >
             <img 
               src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" 
